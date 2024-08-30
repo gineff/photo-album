@@ -1,0 +1,17 @@
+version: "3"
+services:
+  directus:
+    image: directus/directus:11.0.2
+    ports:
+      - 8055:8055
+    volumes:
+      - ./packages/server/directus/database:/directus/database
+      - ./packages/server/directus/uploads:/directus/uploads
+      - ./packages/server/directus/extensions:/directus/extensions
+    environment:
+      SECRET: "secure-palace"
+      ADMIN_EMAIL: "gneff@yandex.ru"
+      ADMIN_PASSWORD: "d1r3ctu5"
+      DB_CLIENT: "sqlite3"
+      DB_FILENAME: "/directus/database/data.db"
+      WEBSOCKETS_ENABLED: "true"
