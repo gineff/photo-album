@@ -1,10 +1,13 @@
 {
   "name": "photo-album",
   "version": "1.0.0",
-  "main": "index.js",
+  "type": "module",
   "author": "gineff <canone@inbox.ru>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "dev": "yarn workspace client run dev"
+  },
   "workspaces": [
     "packages/*"
   ]
