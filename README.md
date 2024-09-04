@@ -24,6 +24,10 @@
    Для взаимодействия с системой управления контентом Directus используется REST API.
     
 ## Решенные задачи
+![Альбомы](https://github.com/user-attachments/assets/5bd6f3de-1df9-452b-abc9-4458812756ee)  
+![Галерея](https://github.com/user-attachments/assets/10fb65d4-1092-4d02-a669-e9a2e22cfacf)  
+![Модальное окно](https://github.com/user-attachments/assets/ea921f4d-3544-4e68-bb42-b3875a4bc854)  
+![Адаптив](https://github.com/user-attachments/assets/d847f857-0452-4e00-a1d4-624d4564c078)  
 
 1. **1. Поддержка любых размеров изображений**
     Поддержка любых размеров изображений обеспечивается за счет использования возможностей MUI, CSS-свойства `background-size: cover`, `aspect-ratio: 16/9`, а также контроля размеров через `vh` и `vw`.  
