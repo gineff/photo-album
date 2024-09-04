@@ -4,14 +4,14 @@ import { PhotoList } from '@widgets/photo-list/ui/photo-list';
 import { Breadcrumbs } from '@widgets/breadcrumbs';
 import { PhotoCard } from '@widgets/photo-card/ui/photo-card';
 import { PhotoModal } from '@features/photo-modal';
-import { useIsTablet } from '../lib/use-is-tablet';
+import { useIsMobile } from '../lib/use-is-mobile';
 
 export const PhotosPage = () => {
   useSetPhotoPageParams();
-  const isTablet = useIsTablet();
+  const isMobile = useIsMobile();
   const { photoIndex } = useParams();
 
-  if (photoIndex && isTablet) {
+  if (photoIndex && isMobile) {
     return <PhotoCard />;
   }
 

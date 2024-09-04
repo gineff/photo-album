@@ -11,7 +11,7 @@ export const PhotoItem = ({ image, index }) => {
         {image ? (
           <CardMedia
             sx={{ aspectRatio: '16/9', borderRadius: '8px' }}
-            image={generateAssetLink(image)}
+            image={generateAssetLink(image) + '?fit=cover&width=470&height=270&quality=80'}
             title="green iguana"
           />
         ) : (
