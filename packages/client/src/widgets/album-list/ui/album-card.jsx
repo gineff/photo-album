@@ -11,7 +11,7 @@ export const AlbumCard = (props) => {
         <Card sx={{ padding: '15px ' }}>
           {cover ? (
             <CardMedia
-              sx={{ aspectRatio: '470/270', borderRadius: '8px' }}
+              sx={{ aspectRatio: '16/9', borderRadius: '8px' }}
               image={cover}
               title="green iguana"
             />
