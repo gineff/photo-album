@@ -1,16 +1,5 @@
 version: "3"
 services:
-  client:
-    container_name: photo-album-client
-    image: photo-album-client
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-        PORT: 80
-    restart: unless-stopped
-    ports:
-      - "80:80"
   directus:
     image: directus/directus:11.0.2
     ports:
