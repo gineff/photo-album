@@ -46,8 +46,16 @@ class AlbumStore {
     });
   }
 
+  get albumId() {
+    return this.currentAlbum?.id;
+  }
+
   get albumTitle() {
     return this.currentAlbum?.title;
+  }
+
+  get albumCount() {
+    return this.currentAlbum?.count;
   }
 }
 
