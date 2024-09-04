@@ -2,7 +2,7 @@ import { Box, Card, CardMedia, Skeleton } from '@mui/material';
 import { generateAssetLink } from '@features/generate-asset-link';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 
-export const PhotoCard = ({ image, index }) => {
+export const PhotoItem = ({ image, index }) => {
   const [searchParams] = useSearchParams();
   const { albumId } = useParams();
   return (

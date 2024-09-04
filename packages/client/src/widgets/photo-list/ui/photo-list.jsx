@@ -2,16 +2,17 @@ import { photoStore } from '@entities/photo';
 import { observer } from 'mobx-react';
 import { Link } from 'react-router-dom';
 import { Box, Button, Grid2 as Grid, Pagination } from '@mui/material';
-import { PhotoCard } from './photo-card.jsx';
+import { PhotoItem } from './photo-item.jsx';
 
 export const PhotoList = observer(() => {
+
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={3}>
           {photoStore.photos?.map((photo) => (
             <Grid key={photo.id} size={{ xs: 12, lg: 4, md: 6 }}>
-              <PhotoCard {...photo} />
+              <PhotoItem {...photo} />
             </Grid>
           ))}
         </Grid>
