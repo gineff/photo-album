@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { usePhotoModal } from '../lib/use-photo-modal';
 import { photoStore } from '@entities/photo';
 import { generateAssetLink } from '@features/generate-asset-link';
-import { Pagination } from './pagination';
+import { PhotoController } from '@shared/photo-controller';
 
 export const PhotoModal = observer(() => {
   const { photoIndex } = useParams();
@@ -29,7 +29,7 @@ export const PhotoModal = observer(() => {
         )}
       </DialogContent>
       <DialogActions>
-        <Pagination currentPhotoIndex={+photoIndex} />
+        <PhotoController currentPhotoIndex={+photoIndex} />
       </DialogActions>
     </Dialog>
   );

@@ -1,13 +1,12 @@
 import { observer } from 'mobx-react';
 import { albumStore } from '@entities/album';
-import { photoStore } from '@entities/photo';
 import { Box, IconButton, Typography } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CloseIcon from '@mui/icons-material/Close';
 import { useNavigatePages } from '../lib/use-navigate-pages';
 
-export const Pagination = observer(({ currentPhotoIndex }) => {
+export const PhotoController = observer(({ currentPhotoIndex }) => {
   const total = albumStore.albumCount;
 
   const { navigateNextPage, navigatePreviousPage, navigateToAlbum } = useNavigatePages(
