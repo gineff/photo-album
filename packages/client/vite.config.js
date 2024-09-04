@@ -13,6 +13,7 @@ export default defineConfig({
         { find: '@', replacement: path.resolve(__dirname, './src') },
         { find: '@entities', replacement: path.resolve(__dirname, './src/entities') },
         { find: '@widgets', replacement: path.resolve(__dirname, './src/widgets') },
+        { find: '@features', replacement: path.resolve(__dirname, './src/features') },
       ],
     }),
   ],
@@ -23,10 +24,13 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/directus/, ''),
       },
-      '/admin': {
+      '^/admin/.*': {
         target: 'http://localhost:8055',
         changeOrigin: true,
-        followRedirects: true,
+      },
+      '^/auth/.*': {
+        target: 'http://localhost:8055',
+        changeOrigin: true,
       },
     },
   },
