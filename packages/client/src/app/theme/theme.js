@@ -21,7 +21,7 @@ export const theme = createTheme({
   palette: {
     text: {
       primary: '#1D558E',
-      secondary: ' #92AE87',
+      secondary: '#92AE87',
     },
     background: {
       paper: '#FFF',
