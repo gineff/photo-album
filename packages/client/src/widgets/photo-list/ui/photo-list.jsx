@@ -1,13 +1,12 @@
 import { photoStore } from '@entities/photo';
 import { observer } from 'mobx-react';
-import { Link } from 'react-router-dom';
-import { Box, Button, Grid2 as Grid, Pagination } from '@mui/material';
+import { Box, Stack, Grid2 as Grid } from '@mui/material';
 import { PhotoItem } from './photo-item.jsx';
+import { PhotoPagination } from './photo-pagination.jsx';
 
 export const PhotoList = observer(() => {
-
   return (
-    <>
+    <Stack direction="column" spacing={4}>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={3}>
           {photoStore.photos?.map((photo) => (
@@ -17,10 +16,9 @@ export const PhotoList = observer(() => {
           ))}
         </Grid>
       </Box>
-      <Button component={Link} to={'/album/1?page=2'}>
-        next
-      </Button>
-      <Pagination count={10} shape="rounded" />
-    </>
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <PhotoPagination />
+      </Box>
+    </Stack>
   );
 });
