@@ -1,9 +1,10 @@
 import { makeAutoObservable, runInAction } from 'mobx';
 import { fetchAlbums } from '../api';
 import { Album } from './album';
-
+import { toJS } from 'mobx';
 class AlbumStore {
   albums = [];
+  currentAlbum = null;
   loading = false;
   error = null;
 
@@ -30,6 +31,23 @@ class AlbumStore {
         this.loading = false;
       });
     }
+  }
+
+  async setCurrentAlbum(albumId) {
+    let album = this.albums.find(({ id }) => id === +albumId);
+
+    if (!album) {
+      await this.loadAlbums();
+      album = this.albums.find(({ id }) => id === +albumId);
+    }
+
+    runInAction(() => {
+      this.currentAlbum = album || null;
+    });
+  }
+
+  get albumTitle() {
+    return this.currentAlbum?.title;
   }
 }
 

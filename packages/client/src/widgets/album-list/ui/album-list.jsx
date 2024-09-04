@@ -1,16 +1,14 @@
 import { useEffect } from 'react';
 import { Box, Grid2 as Grid, Paper } from '@mui/material';
 import { observer } from 'mobx-react';
-import { albumStore } from '../../../entities/album';
-import { AlbumCard } from './album-card/index.jsx';
+import { albumStore } from '@entities/album';
+import { AlbumCard } from './album-card';
 import { toJS } from 'mobx';
 
 export const AlbumList = observer(() => {
   useEffect(() => {
     albumStore.loadAlbums();
   }, []);
-
-  console.log(toJS(albumStore.albums));
 
   return (
     <Box sx={{ flexGrow: 1 }}>

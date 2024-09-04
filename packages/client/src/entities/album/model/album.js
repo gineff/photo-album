@@ -1,4 +1,4 @@
-import { makeAutoObservable, runInAction } from 'mobx';
+import { makeAutoObservable, runInAction, autorun } from 'mobx';
 import { fetchAlbumDetails } from '../api';
 import { buildCoverUrl } from '../lib/buildCoverUrl';
 
@@ -11,7 +11,10 @@ export class Album {
     this.id = id;
     this.count = count;
     makeAutoObservable(this);
-    this.loadDetails();
+
+    autorun(() => {
+      this.loadDetails();
+    });
   }
 
   async loadDetails() {

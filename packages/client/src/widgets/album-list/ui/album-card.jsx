@@ -2,10 +2,8 @@ import { Box, Card, Skeleton, Stack } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
-import { Link as MuiLink } from '@mui/material';
 
 export const AlbumCard = (props) => {
-  console.log('props', props);
   const { cover, title, count, id } = props;
   return (
     <Box to={`/album/${id}`} component={Link} sx={{ textDecoration: 'none', color: 'inherit' }}>

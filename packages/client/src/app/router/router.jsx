@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { BaseLayout } from '@/shared/base-layout';
 import { AlbumsPage } from '../../pages/album';
 import { PhotosPage } from '../../pages/photo';
+import { CurrentAlbum } from './current-album';
 
 export const Router = () => (
   <Routes>
@@ -11,7 +12,7 @@ export const Router = () => (
       {/* Маршруты для альбомов */}
       <Route path="album">
         <Route index element={<AlbumsPage />} />
-        <Route path=":albumId">
+        <Route path=":albumId" element={<CurrentAlbum />}>
           <Route index element={<PhotosPage />} />
           <Route path="photo/:photoId" element={<PhotosPage />} />
         </Route>
@@ -20,7 +21,7 @@ export const Router = () => (
       {/* Маршруты для фотографий */}
       <Route path="photo">
         <Route index element={<PhotosPage />} />
-        <Route path=":photoId" element={<PhotosPage />} /> 
+        <Route path=":photoId" element={<PhotosPage />} />
       </Route>
     </Route>
   </Routes>
