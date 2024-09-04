@@ -14,14 +14,8 @@ export const Router = () => (
         <Route index element={<AlbumsPage />} />
         <Route path=":albumId" element={<CurrentAlbum />}>
           <Route index element={<PhotosPage />} />
-          <Route path="photo/:photoId" element={<PhotosPage />} />
+          <Route path="photo/:photoIndex" element={<PhotosPage />} />
         </Route>
-      </Route>
-
-      {/* Маршруты для фотографий */}
-      <Route path="photo">
-        <Route index element={<PhotosPage />} />
-        <Route path=":photoId" element={<PhotosPage />} />
       </Route>
     </Route>
   </Routes>

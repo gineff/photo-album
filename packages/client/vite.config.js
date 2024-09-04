@@ -14,6 +14,7 @@ export default defineConfig({
         { find: '@entities', replacement: path.resolve(__dirname, './src/entities') },
         { find: '@widgets', replacement: path.resolve(__dirname, './src/widgets') },
         { find: '@features', replacement: path.resolve(__dirname, './src/features') },
+        { find: '@shared', replacement: path.resolve(__dirname, './src/shared') },
       ],
     }),
   ],

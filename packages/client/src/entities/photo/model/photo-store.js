@@ -6,7 +6,7 @@ class PhotoStore {
   limit = 6;
   page = null;
   albumId = null;
-  photoId = null;
+  photoIndex = null;
   photos = [];
   loading = false;
   error = null;
@@ -22,9 +22,9 @@ class PhotoStore {
     );
   }
 
-  setParams({ albumId, photoId, page }) {
+  setParams({ albumId, photoIndex, page }) {
     this.albumId = albumId ?? null;
-    this.photoId = photoId ?? null;
+    this.photoIndex = photoIndex ?? null;
     this.page = page ?? null;
   }
 
@@ -55,7 +55,10 @@ class PhotoStore {
         albumId: albumId,
       });
       runInAction(() => {
-        this.photos = fetchedPhotos;
+        this.photos = fetchedPhotos.map((photo, i) => ({
+          ...photo,
+          index: (this.page - 1) * this.limit + i,
+        }));
       });
     } catch (error) {
       runInAction(() => {
@@ -68,7 +71,9 @@ class PhotoStore {
       });
     }
   }
-
+  getPhotoByIndex(photoIndex) {
+    return this.photos.find(({ index }) => photoIndex == index);
+  }
   getPhotoById(photoId) {
     return this.photos.find(({ id }) => photoId == id);
   }

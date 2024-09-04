@@ -4,7 +4,7 @@ import { Breadcrumbs as MuiBreadcrumbs, Link, Typography } from '@mui/material';
 import { Link as RouterLink, useParams } from 'react-router-dom';
 
 export const Breadcrumbs = observer(() => {
-  const { albumId, photoId } = useParams();
+  const { albumId, photoIndex } = useParams();
 
   const albumTitle = albumStore.albumTitle;
   return (
@@ -15,16 +15,16 @@ export const Breadcrumbs = observer(() => {
       {albumId && (
         <Link
           underline="hover"
-          color={photoId ? 'text.primary' : 'text.secondary'}
-          to={`/album/${albumTitle}`}
+          color={photoIndex ? 'text.primary' : 'text.secondary'}
+          to={`/album/${albumId}`}
           component={RouterLink}
         >
           {albumTitle}
         </Link>
       )}
-      {photoId && (
+      {photoIndex && (
         <Typography color="text.secondary" aria-current="page">
-          {photoId}
+          {photoIndex}
         </Typography>
       )}
     </MuiBreadcrumbs>
