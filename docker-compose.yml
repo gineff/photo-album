@@ -9,12 +9,17 @@ services:
       args:
         PORT: 80
     restart: unless-stopped
+    depends_on:
+      - directus
     ports:
       - "80:80"
+    networks:
+      - app-network
+
   directus:
     image: directus/directus:11.0.2
     ports:
-      - 8055:8055
+      - "8055:8055"
     volumes:
       - ./packages/server/directus/database:/directus/database
       - ./packages/server/directus/uploads:/directus/uploads
@@ -26,3 +31,9 @@ services:
       DB_CLIENT: "sqlite3"
       DB_FILENAME: "/directus/database/data.db"
       WEBSOCKETS_ENABLED: "true"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

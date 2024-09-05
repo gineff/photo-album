@@ -5,13 +5,16 @@ FROM node:$NODE_VERSION-alpine as build
 
 WORKDIR /app
 
-COPY package.json yarn.lock /app/
-RUN yarn install --frozen-lockfile
+COPY package.json yarn.lock ./
+COPY packages/*/package.json packages/*/yarn.lock ./packages/
+
+RUN yarn install 
 
 COPY . .
 
 RUN rm -rf /app/packages/client/dist/
 WORKDIR /app/packages/client
+RUN yarn add vite -D
 RUN yarn build
 
 FROM nginx:alpine
