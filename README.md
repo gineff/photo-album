@@ -69,7 +69,7 @@ password: d1r3ctu5
    [212.193.63.211](http://212.193.63.211) 
 
 
-## Разворачивание проекта
+## Разворачивание проекта в dev режиме
 
 1. **Клонирование репозитория**  
    Склонируйте репозиторий проекта на ваш локальный компьютер:  
@@ -103,3 +103,23 @@ password: d1r3ctu5
 6. **Остановка контейнеров **  
    ```bash  
    docker docker compose -f docker-compose-dev.yml down
+
+## Разворачивание проекта в production режиме
+
+1. **Клонирование репозитория**  
+   Склонируйте репозиторий проекта на ваш локальный компьютер:  
+   ```bash
+   git clone https://github.com/gineff/photo-album.git
+
+2. **Переход в папку проекта** 
+   ```bash
+   cd photo-album
+
+3. **Расширение прав на базу данных**  
+   ```bash  
+   sudo chmod -R 777 ./packages/server/directus
+   
+4. **Настройка и запуск Directus в фоновом режиме**  
+   ```bash  
+   docker-compose up --build -d
+
