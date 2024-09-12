@@ -1,9 +1,8 @@
 import axios from 'axios';
-import { cacheRequests } from '@features/cached-request';
 
 const API_URL = '/directus/items';
 
-export const fetchPhotos = cacheRequests(async ({ limit, page, albumId }) => {
+export const fetchPhotos = async ({ limit, page, albumId }) => {
   const response = await axios.get(`${API_URL}/photos`, {
     params: {
       'fields[]': ['id', 'image'],
@@ -13,4 +12,4 @@ export const fetchPhotos = cacheRequests(async ({ limit, page, albumId }) => {
     },
   });
   return response.data.data;
-});
+};
